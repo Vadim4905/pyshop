@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout
 
 class RegisterView(CreateView):
@@ -11,6 +12,18 @@ class RegisterView(CreateView):
         user = form.save()
         login(self.request, user)
         return redirect("/")
+
+class ShopLoginView(LoginView):
+    template_name = "users/login.html"
+    form_class = AuthenticationForm
+
+    # def get_success_url(self):
+    #     return redirect('/')
+
+    # def form_valid(self,form:AuthenticationForm):
+
+    #     login(self.request.user)
+    #     return redirect("/")
 
 def user_exit(request):
     logout(request)

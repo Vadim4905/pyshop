@@ -5,16 +5,13 @@
     <title>Register</title>
 </head>
 <body>
-{# -------- #}
-<form action="{% url 'register' %}" method="post">
+
+<form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <br>
     <input type="submit">
 </form>
-{#{% for category in object_list %}#}
-{#    {{ category.name }}#}
-{#{% endfor %}#}
-{#    <h1>{{ name }}</h1>#}
+
 </body>
 </html>
