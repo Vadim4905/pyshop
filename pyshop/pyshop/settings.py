@@ -134,3 +134,10 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'  # надо так
 
 LOGIN_REDIRECT_URL ='/'
+
+EMAIL_BACKEND = 'django.mail.core.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_HOST_USER = "gsmkibernetik@gmail.com"
+EMAIL_HOST_PASSWORD = "cphmvweegmlvatlu"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
