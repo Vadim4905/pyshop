@@ -1,8 +1,16 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView
+from django.views.generic import CreateView,View
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth import login, logout
+from django.http import HttpResponse
+
+from django.core.mail import send_mail
+
+from pyshop import settings
+import smtplib
+import ssl
+
 
 class RegisterView(CreateView):
     template_name = "users/register.html"
@@ -29,7 +37,19 @@ def user_exit(request):
     logout(request)
     return redirect("/")
 
+class SendEmail(View):
+    def get(self, request):
+        message = "Hello, world!"
+        # post_server = smtplib.SMTP(settings.EMAIL_HOST, settings.EMAIL_PORT)
+        # post_server.ehlo()
+        # post_server.starttls(context=ssl.create_default_context())
+        # post_server.login(settings.EMAIL_HOST_USER, settings.EMAIL_HOST_PASSWORD)
+        # post_server.sendmail(settings.EMAIL_HOST_USER, "severnaya3lisa@gmail.com", message)
+        # post_server.quit()
+        send_mail("Mail to severnaya3lisa@gmail.com",message,settings.EMAIL_HOST_USER,
+        ['severnaya3lisa@gmail.com'])
+
+        return HttpResponse('Mesage sent')
+
+
     
-#tratatata333 1 user
-#tratatata334 2 user
-#tratatata335 3 user
