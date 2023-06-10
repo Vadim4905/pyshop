@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ title }}</title>
-</head>
-<body>
+
+
+{% include 'home/base.html' %}
+
+{% block title %}<title>index</title>{% endblock  %}
+
+{% block content %}
+
 {#    <h3>{{ products }}</h3>#}
     <h1>Products available</h1>
     {% for product in products %}
         <h3>Product: {{ product }}</h3>
     {% endfor %}
 
-</body>
-</html>
+{% endblock %}

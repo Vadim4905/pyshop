@@ -141,3 +141,4 @@ EMAIL_HOST_USER = 'poipooo600@gmail.com'
 EMAIL_HOST_PASSWORD = 'ugylwluurseqqlcb'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
